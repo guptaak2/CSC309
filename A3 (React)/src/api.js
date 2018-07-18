@@ -32,7 +32,6 @@ const dbName = UTORID + '_309';
 console.log(dbName);
 
 const url = 'mongodb://' + UTORID + ':' + PASSWORD + '@mcsdb.utm.utoronto.ca:27017/' + dbName;
-// const url = 'mongodb://localhost:27017/' + dbName;
 console.log(url);
 
 function connect() {

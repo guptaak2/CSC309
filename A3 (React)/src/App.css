@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,300,900');
+
+.App {
+  text-align: center;
+}
+
+body{
+  font-family: 'Concert One';
+  background: white;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 120px;
+  padding: 25px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro { 
+  font-size: large;
+  padding: 3%;
+
+}
+.cardtitle{
+    font-family: 'Lato';
+}
+.Card{
+  margin: 25%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+    
+  .App-intro {    
+    font-size: large;
+    padding: 3%;
+
+  }
+  .carTitle{
+    font-size: small;
+  }
+
+  .Card{
+    margin-bottom: 5px;
+    max-width: 100%;
+  }
+} 

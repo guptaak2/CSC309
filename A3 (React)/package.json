@@ -1,0 +1,30 @@
+{
+  "name": "reactapp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "JSON": "^1.0.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jquery": "^3.3.1",
+    "jsonwebtoken": "^8.2.0",
+    "material-ui": "^0.20.0",
+    "mongodb": "^3.0.5",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "ws": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start & node src/api.js & node src/game_server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:10880"
+}
