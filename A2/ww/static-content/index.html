@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta HTTP-EQUIV="EXPIRES" CONTENT="-1">
+		<meta name="viewport" content="width=device-width, user-scalable=no"/>
+		<title>Computing Science 309 Warehouse Wars</title>
+		<script language="javascript" src="jquery-3.3.1.min.js" > </script>
+		<script language="javascript" src="ww.js" > </script>
+		<script language="javascript" src="user.js" > </script>
+		<link rel="stylesheet" href="styles/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+		<script> 
+			stage=null;
+			// SOME GLUE CODE CONNECTING THIS PAGE TO THE STAGE
+			interval=null;
+			function setupGame(){
+				stage=new Stage(20,20,"stage");
+				stage.initialize();
+			}
+
+			function startGame(){
+	            setInterval(function() {stage.step(stage.actors);}, 1000); 
+				stage.paused = 0;
+			}
+
+			function pauseGame(){
+				stage.paused = 1;
+			}
+
+			$(function(){
+				topTen();
+			});
+            
+            // **ARROW KEY CONTROLLER**
+            $(document).keydown(function(e) {
+                switch (e.keyCode) {
+                    case 37: stage.move(stage.player, 'west'); break;
+                    case 38: stage.move(stage.player, 'north'); break;
+                    case 39: stage.move(stage.player, 'east'); break;
+                    case 40: stage.move(stage.player, 'south'); break;
+                    case 81: stage.move(stage.player, 'nw'); break; //q
+                    case 87: stage.move(stage.player, 'north'); break; //w
+                    case 69: stage.move(stage.player, 'ne'); break; //e
+                    case 65: stage.move(stage.player, 'west'); break; //a
+                    case 68: stage.move(stage.player, 'east'); break; //d
+                    case 90: stage.move(stage.player, 'sw'); break; //z
+                    case 88: stage.move(stage.player, 'south'); break; //x
+                    case 67: stage.move(stage.player, 'se'); break; //c
+                }
+            });
+		</script>
+		<style>
+			img.headerImg{
+				width: 28%;
+			}
+			div.lineBreak{
+				border-left: darkgreen solid 3px;
+				height: 150px;
+				width: 1px;
+				float: left;
+				padding-bottom: 100px;
+			}
+			body{
+				background-image: url(styles/wwBG.jpg);
+				background-position: -2000 0;
+				background-repeat: repeat;
+				background-size: 200%;
+				animation: house 2000s Linear infinite;
+			}
+			@keyframes house {
+				from{
+					background-position: -5000px 0;
+				}
+				to{
+					background-position: 250000px 0;
+				}
+			}
+			table.mainView{
+				padding: 25px;
+				border-radius: 10px;
+				background: rgba(100,100,100,0.3);
+			}
+			div.mainViewRegister, div.mainView{
+				padding: 5px;
+				border-radius: 10px;
+				background: rgba(100,100,100,0.3);
+				margin-left: 550px;
+				margin-right: 550px;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<!--Main Game Header Block-->
+			<img id="headerImg" class="headerImg" src="styles/wwHeader.png"/>
+
+			<!--User Navigation Block-->
+			<div id="navBar" style="display:none">
+				<input type="button" class="button" value="Play Game" id="gameNavButton"/>
+				<input type="button" class="button" value="Edit Profile" id="profileNavButton"/>
+				<input type="button" class="button" value="Logout" id="logoutNavButton"/>
+				<br>
+				<br>
+			</div>
+
+			<!--Username Display on Views-->
+			<div>
+				<input type="text" id="usernameDisplay" style="display:none;" value="" readonly/>
+			</div>
+			
+			<!--User Login Block-->
+			<table class="mainView" id="mainView">
+				<tr>
+					<td style="padding-right: 200px;">
+						<div id="loginView">
+							<p class="headings">Login</p>
+							<input type="text" id="usernameLogin" placeholder="Username" pattern="[A-Za-z0-9]+" autofocus required title="Alpha-Numeric Only"></input>
+							<br><br>
+							<input type="password" id="passwordLogin" placeholder="Password" required title="Valid Password Only"></input>
+							<br><br>
+							<input type="button" class="button" onclick="login();" value="Login" id="loginButton"/>
+							<br>
+							<p style="color:white;">Not a member?</p>
+							<input type="button" class="button" value="Register" id="registerButton"/>
+						</div>
+					</td>
+					<td style="padding-right: 200px;">
+						<div class="lineBreak"></div>
+					</td>
+			
+			<!--Top Ten Highscores Block-->
+					<td id="mainViewCells">
+						<table id="topTenHighScores">
+							<p class="headings" style="text-align:center;font-size: 18px;">Top 10 High Scores</p>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row1" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;"value="" id="row2" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row3" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row4" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row5" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row6" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row7" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row8" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row9" readonly></td>
+							</tr>
+							<tr>
+								<td><input type="text" style="text-align:center;" value="" id="row10" readonly></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+			<!--User Registration Block-->
+			<div id="registerView" class="mainViewRegister" style="display:none">
+                <p class="headings">Register</p>
+                <input type="text" name="user" id="usernameRegister" required autofocus placeholder="Username" pattern="[A-Za-z0-9]+" title="Alpha-Numeric Only" /><br><br>
+                <input type="password" name="password" id="passwordRegister" placeholder="Password" required/><br><br>
+                <input type="text" name="name" id="firstNameRegister" placeholder="Enter First Name" required pattern="[A-Za-z]+" title="Letters Only"/><br><br>
+                <input type="text" name="name" id="lastNameRegister" placeholder="Enter Last Name" required pattern="[A-Za-z]+" title="Letters Only"/><br><br>
+				<input type="email" name="email" id="emailRegister" placeholder="Enter Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Enter Valid Email"/><br><br>
+                <input type="button" class="button" value="Sign Up" onclick="register()" id="signUpRegister"/>
+                <p class="headings" style="color:white;">Already registered?</p>
+                <input type="button" class="button" value="Go Back" id="goBackLogin"/>
+			</div>
+			
+			<!--Edit Profile Registration Block-->
+			<div id="profileView" class="mainView" style="display:none">
+                <p class="headings">Edit Profile</p>
+                <input type="text" name="user" id="usernameProfile" readonly/><br><br>
+                <input type="password" name="password" id="passwordProfile" required/><br><br>
+                <input type="text" name="firstName" id="firstNameProfile" required pattern="[A-Za-z]+" title="Letters Only"/><br><br>
+                <input type="text" name="lastName" id="lastNameProfile"  required pattern="[A-Za-z]+" title="Letters Only"/><br><br>
+				<input type="email" name="email" id="emailProfile" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Enter Valid Email"/><br><br>
+                <p><input type="button" class="button" onclick="editProfile()" id="updateProfile" value="Update Profile" />
+				<input type="button" class="button" onclick="deleteProfile()" id="deleteProfile" value="Delete Account" /></p>
+			</div>
+			
+			<!--Game Display Block-->
+			<table id="gameView" style="background:white;display:none;" cellspacing="10">
+                <tr>
+                    <td> <div id ="stage1"> </div> </td>
+					<td>
+                        <table>
+                            <center>
+                                <tr>
+                                    <td>
+									<center>
+									<!--Top Three User Scores Block-->
+									<h4>Top 3 User High Scores</h4>
+									<table id="topThreeHighScores">
+										<tr>
+											<td><input type="text" style="color:black;text-align:center;" value="" id="topThree1" readonly></td>
+										</tr>
+										<tr>
+											<td><input type="text" style="color:black;text-align:center;" value="" id="topThree2" readonly></td>
+										</tr>
+										<tr>
+											<td><input type="text" style="color:black;text-align:center;" value="" id="topThree3" readonly></td>
+										</tr>
+									</table>
+                                    <table class="legend">
+                                        <h2>Score</h2>
+                                        <tr> <span id="score">0</span> </tr>
+                                        <h2>Legend</h2>
+                                        <tr>
+                                            <td> <img class="icons" src="icons/blank.gif" id="blankImage" /> </td>
+                                            <td> <img class="icons" src="icons/emblem-package-2-24.png" id="boxImage" /> </td>
+                                            <td> <img class="icons" src="icons/face-cool-24.png" id="playerImage" /> </td>
+                                            <td> <img class="icons" src="icons/face-devil-grin-24.png" id="monsterImage" /> </td>
+                                            <td> <img class="icons" src="icons/wall.jpeg" id="wallImage" /> </td>
+                                        </tr>
+                                        <tr>
+                                            <td> Empty <br/> Square </td>
+                                            <td> Box </td>
+                                            <td> Player </td>
+                                            <td> Monster </td>
+                                            <td> Wall </td>
+                                        </tr>
+                                    </table>
+									</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+									<center>									
+                                    <h2>Controls</h2>
+                                    <table class="controls">
+                                        <tr>
+                                            <td><img class = "i2 icons" src="icons/north_west.svg" onclick="stage.move(stage.player, 'nw');" /></td>
+                                            <td><img class = "i2 icons" src="icons/north.svg" onclick="stage.move(stage.player, 'north');" /></td>
+                                            <td><img class = "i2 icons" src="icons/north_east.svg" onclick="stage.move(stage.player, 'ne');"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class = "i2 icons" src="icons/west.svg" onclick="stage.move(stage.player, 'west');" /></td>
+                                            <td>&nbsp;</td>
+                                            <td><img class = "i2 icons" src="icons/east.svg" onclick="stage.move(stage.player, 'east');" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><img class = "i2 icons" src="icons/south_west.svg" onclick="stage.move(stage.player, 'sw');" /></td>
+                                            <td><img class = "i2 icons" src="icons/south.svg" onclick="stage.move(stage.player, 'south');" /></td>
+                                            <td><img class = "i2 icons" src="icons/south_east.svg" onclick="stage.move(stage.player, 'se');" /></td>
+                                        </tr>
+                                    </table>
+										<table>
+											 <tr>
+												<td> 
+													<button class = "button" type="button" onclick="pauseGame()">Pause(o)</button> 
+													<button class = "button" type="button" onclick="startGame()">Play(p)</button> 
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align: center;"><button class = "button" type="button" onclick="setupGame()">Restart</button> </td>
+											</tr>
+										</table>
+                                    </center>        
+                                    </td>
+                                </tr>
+                            </center>
+                        </table>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</body>
+</html>

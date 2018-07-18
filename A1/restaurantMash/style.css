@@ -1,0 +1,63 @@
+body {
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+header, footer {
+    clear: left;
+    text-align: center;
+    margin:5px;
+    border-bottom: 1px solid black;
+}
+
+nav {
+    float: left;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+   
+nav ul a {
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    width: 6em;
+    margin: 5px;
+    border:1px solid black;
+    background: black;
+    color: white;
+}
+
+nav ul a:active {
+    background-color: red;
+}
+
+nav ul a:hover {
+    background-color: red;  
+}
+
+nav ul li.selected a {
+    background-color: red;
+}
+
+.choice {
+	padding:10px;
+	border: 2px solid black;
+	background: grey;
+	color: white;
+}
+
+main {
+    float: left;
+    border-left: 1px solid gray; 
+    padding: 1em;
+}
+
+table th{
+	text-align: left;
+}
+

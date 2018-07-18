@@ -1,0 +1,119 @@
+Features: For each feature you implement, move to the Implemented section and
+explain who did it (UTORID) and how you did it. You can consider these as 
+almost user stories, if you just add a bit to them. Add more features/user stories at the bottom.
+Move them up when completed.
+
+------------------------------------------------------------------------------------
+Implemented: 
+------------------------------------------------------------------------------------
+0) Login
+   Done by: arnold
+   Explanation: created schema, including appuser table, populated with 
+   default user. Also created handler for login state as well as login page.
+
+01) User never votes twice on the same pair
+    Done by: Done Together 
+    Explanation: User vote recorded in session.
+
+02) Page token: Reload button does not cause incorrect vote, that is reload presents
+   expired message and new page presented
+    Done by: Done Together 
+    Explanation: Page token used to prevent reload.
+
+03) Page token: Back button not allowed, that is old submission prevented
+    Done by: Done Together 
+    Explanation: Back button keeps user on the same page and prevents an old submission.
+
+04) Excellent use of MVC
+    Done by: Done Together 
+    Explanation: All elements of MVC laid out consistently throughout.
+
+05) Insecure direct object references prevented, don't need object id's on the page
+    Done by: Done Together 
+    Explanation: No direct object references are presented on the page.
+
+06) Good schema
+    Done by: Done Together 
+    Explanation: Good schema used throughout.
+
+07) Summary screen presents list of restaurants and their current ranking
+    Done by: Done Together 
+    Explanation: Summary screen (results) presents names of restaurants in one column, and ranking in the other side by side using a table and a foreach loop.
+
+09) Summary screen automatically updates every once in a while.
+    Done by: Done Together 
+    Explanation: Summary screen is refreshed every 5 seconds using meta http-equiv="refresh".
+
+10) Good implementation of navigation in the controller.
+    Done by: Done Together 
+    Explanation: Navigation controls implemented in the controller using different cases and dependent on the assignment of operation variable.
+
+11) User profile has lots of interesting inputs
+    Done by: Done Together 
+    Explanation: User profile includes the option to include first name, last name, email, address, city, province, postal code, phone number, as well as the username and password of course. Updating user information is allowed except for username, and restrictions are put on the input of data (i.e. email addresses must contain '@').
+
+12) Invalid form submission triggers page reload with form still filled in
+    as well as good error messages.
+    Done by: Done Together 
+    Explanation: User information stays in fields after invalid input is discovered. Invalid input triggers prompt to user through the use of html pattern.
+
+13) All user inputs whitelisted on the backend, whether checked on the front
+    or not.
+    Done by: Done Together 
+    Explanation: User input checked additionally on login.
+
+14) Good use of HTML5 form fields for form validation.
+    Done by: Done Together 
+    Explanation: html form fields echo out responses and prompts the user necessarily with html pattern validation to ensure proper user input.
+
+15) User profile can be visited for the first time (on registration),
+    on error, and on update in which case it is pre-loaded with
+    appropriate fields.
+    Done by: Done Together 
+    Explanation: User profile can be visited in all cases, and will always be pre-loaded with proper info.
+
+16) Good use of sql
+    Done by: Done Together 
+    Explanation: Efficient use of sql throughout by creating 3 tables [appuser (account information), appuser_otherinfo (contact information), restaurants (store restaurants and ratings).
+
+17) Wins vs losses vs ties on results page
+    Done by: Done Togehter
+    Explanation: Result pages shows wins (restaurants voted for) and losses (restaurants voted against) by adding 2 more columns to restaurants table
+
+18) Navigation highlights which page they are on
+    Done by: Done Together 
+    Explanation: Navigation highlights tab in red when user sees that page by adding a specific class to each individual php page that triggers css background colour change. Additionally provides feedback when hovering.
+
+19) Require user to answer 10 (for example) before they can see results
+    Done by: Done Together 
+    Explanation: Controller updated so that results page only put into the view when variable num_choices is greater than or equal to 10. 
+
+20) Add in option for tie or ‘I don’t know’ instead of just one wins etc.
+    Done by: Done Together 
+    Explanation: Added 2 more buttons on compete tab that lets user choose 'I don't know' or 'Tie!' instead of picking one over another.
+
+22) Good use of session
+    Done by: Done Together 
+    Explanation: Good use of session used (abused a little to store user information).
+
+23) Good use of transactions as appropriate. Note: You can put a begin/commit block in a try/catch to simplify transaction exception handling. 
+    Done by: Done Together 
+    Explanation: Transactions used to ensure only 1 user is able to get_rating and add_rating to the database.
+
+25) Description: Dynamically adding restaurants from restaurants.txt
+    Done by: Done Together 
+    Explanation: Adds in restaurants dynamically as they are added into restaurants.txt because get_restaurants_table() function is called when loading results page, which queries the data directly from sql and returns.
+
+------------------------------------------------------------------------------------
+Unimplemented:
+------------------------------------------------------------------------------------
+
+08) Summary screen presents some notion of velocity for each restaurant, for example
+   velocity over the past few ratings, velocity over the past few minutes.
+   Users see which restaurants are moving in the ratings fastest.
+    Done by: UTORID 
+    Explanation: 
+
+21) Smarter choice of pairs, so for example, restaurants compete with ‘closely rated’ other restaurants. (Is this better?)
+    Done by: UTORID 
+    Explanation: 

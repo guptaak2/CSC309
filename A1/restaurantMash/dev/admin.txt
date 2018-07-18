@@ -1,0 +1,55 @@
+0) The assignment can be found at http://www.cs.toronto.edu/~arnold/309/18s/assignments/01/
+
+1) Check out https://cs.utm.utoronto.ca/~rosenbl6/restaurantMash
+
+2) You are in a group, please see ... https://cs.utm.utoronto.ca/~ta/309groups/
+
+3) You have been given a git repo for your group
+
+   git clone https://mcsscm.utm.utoronto.ca/git/309/repo_$GROUP.git
+
+4) You have been given a database, your credentials are 
+   - db created is called $UTORID_309
+   - username is your UTORid 
+   - password is the 5 digits before the last 2 digits of your library barcode
+   - hostname is mcsdb.utm.utoronto.ca
+
+   The following should work ... from cslinux.utm.utoronto.ca
+
+     psql -d [UTORID]_309 -U [UTORID] -p [PASSWD_AS_ABOVE] -h mcsdb.utm.utoronto.ca
+
+5) You can install the application by 
+
+ssh -Y [UTORID]@cslinux.utm.utoronto.ca
+cd ~/www
+git clone https://mcsscm.utm.utoronto.ca/git/309/repo_$GROUP.git
+wget http://www.cs.toronto.edu/~arnold/309/18s/assignments/01/restaurantMash.zip
+unzip restaurantMash.zip
+cd restaurantMash/dev
+./setup.sh   # put in your db credentials there
+
+6) For system errors, not help debugging your code, please email 
+   Andrew Wang <andrew.wang@utoronto.ca
+
+7) If you can not properly install the starter code, please email 
+
+    arnold@cs.toronto.edu
+    ant.tam@mail.utoronto.ca
+    kelvink.kong@mail.utoronto.ca
+    jai.geelal@mail.utoronto.ca
+    yutao.yan@mail.utoronto.ca
+
+   immediately you issue may be others issues.
+
+8) Please also see the shared google doc at ...
+
+   https://docs.google.com/document/d/1yFkYBlxIxKACCC_liXDWjA0awjwsmuRnXHaRVgBpXeQ/edit?usp=sharing
+
+9) For a list of features you might consider adding, see the features doc in restaurantMash/dev/features.txt
+
+10) Please make sure the persmissions set on all php scripts is 600, so other students can not read them.
+
+	cd ~/www/restaurantMash
+	chmod 600 *.php
+	chmod 600 */*.php
+

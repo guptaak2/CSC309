@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script>
+		// Yellow frogs move right, green frogs move left. A frog can move either to the 
+		// adjacent empty square of jump a frog to an empty square. The goal of the puzzle
+		// is for the Yellow frogs to move all the way to the right and the green frogs
+		// to move all the way to the left.
+
+		// The following array captures both the position of all frogs as well as
+		// their type and the direction they can move
+		var board=[1,1,1,0,-1,-1,-1];
+		function clickSquare(i){
+			// You will remove the four lines below...(what does this do?)
+			var s1=document.getElementById('square'+0);
+			var s2=document.getElementById('square'+i);
+			s1.src=s2.src;
+			s2.src='images/empty.gif';
+
+			// a frog can move either to the adjacent (empty) square
+			// or jump a frog to move to the empty square.
+
+			if(move(i,i+board[i]))return;
+			move(i,i+2*board[i]);
+
+			// Let the user know if they won the puzzle.
+		}
+
+		// Try to move from position i to position j
+		// return false if the move can not be made, true otherwise
+		function move(i,j){
+			// if the target square (j) is empty
+			// then move the frog at square i to square j
+			// this involves modifying both board[] and the images
+			// at those two positions
+
+		}
+
+		// return false if i is not a valid position
+		// return true if position i is empty
+		// return false otherwise
+		function isEmpty(i){
+
+		}
+
+		// return whether the user has won the game
+		function isWon(){
+
+		}
+
+		// Add a timer which constantly displays the amount of time
+		// it takes the user to solve the puzzle. See setInterval, for example...
+		// http://www.w3schools.com/js/js_timing.asp
+
+		</script>
+	</head>
+	<body>
+		<table border="border">
+			<tr>
+				<td><img id="square0" width="50" height="50" src="images/yellowFrog.gif" onclick="clickSquare(0);" /></td>
+				<td><img id="square1" width="50" height="50" src="images/yellowFrog.gif" onclick="clickSquare(1);" /></td>
+				<td><img id="square2" width="50" height="50" src="images/yellowFrog.gif" onclick="clickSquare(2);" /></td>
+				<td><img id="square3" width="50" height="50" src="images/empty.gif" onclick="clickSquare(3);" /></td>
+				<td><img id="square4" width="50" height="50" src="images/greenFrog.gif" onclick="clickSquare(4);" /></td>
+				<td><img id="square5" width="50" height="50" src="images/greenFrog.gif" onclick="clickSquare(5);" /></td>
+				<td><img id="square6" width="50" height="50" src="images/greenFrog.gif" onclick="clickSquare(6);" /></td>
+			</tr>
+		</table>
+		<div id="status"></div>
+	</body>
+</html>

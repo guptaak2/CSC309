@@ -1,0 +1,23 @@
+Rating.php is from https://github.com/Chovanec/elo-rating/blob/master/src/Rating/Rating.php
+
+require 'src/Rating/Rating.php';
+
+// player A elo = 1000
+// player B elo = 2000
+// player A lost
+// player B win
+
+$rating = new Rating(1000, 2000, Rating::LOST, Rating::WIN);
+
+// player A elo = 1000
+// player B elo = 2000
+// player A draw
+// player B draw
+
+$rating = new Rating(1000, 2000, Rating::DRAW, Rating::DRAW);
+
+$results = $rating->getNewRatings();
+
+echo "New rating for player A: " . $results['a'];
+echo "New rating for player B: " . $results['b'];
+

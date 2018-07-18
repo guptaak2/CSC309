@@ -1,0 +1,20 @@
+Extra Features:
+
+- Material UI was used
+- MongoDB was used
+- React code was modularly broken down into several javascript components, rather than dumping all of our react code into babel scripts (the way the voting example has all the React code in vote.html, which is very unmodular and bad practice)
+- mobile responsiveness for react components -- login page, navbar, profile page
+- registration and profile page has interesting inputs
+- password can be changed on profile page
+- used JSON web tokens for authentication!! 
+- Complete react environment!!!
+- Imported Google Fonts API for using a custom font on homepage
+
+Monster: 
+- Invisible Monster (aka Jumping Monster in my code) -- the gif
+
+Mobile Features: 
+- used gyroscope and accelerometer. accelerometer for shaking users out the game. Gyroscope for moving the user while in game, in a certain direction.
+ 
+
+ 

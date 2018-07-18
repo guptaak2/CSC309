@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+		<meta charset="utf-8">
+                <script src="jquery-2.1.0.js"></script>
+                <script>
+			function showHint(str){
+				if(str.length==0){
+					$('#txtHint').html("");
+				} else {
+					$.get("gethint.php", {q: str}, function(data){
+ 						$("#txtHint").html(data);
+					});
+				}
+			}
+			$(function(){
+				$('#txt1').on('keyup', function(){
+					showHint(this.value);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<form> 
+		<!-- First Name: <input type="text" id="txt1" onkeyup="showHint(this.value)"> -->
+		First Name: <input type="text" id="txt1" />
+		</form>
+		<p>Suggestions: <span id="txtHint"></span></p> 
+	</body>
+</html>

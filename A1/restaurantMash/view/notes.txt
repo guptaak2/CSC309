@@ -1,0 +1,36 @@
+registration:
+	user
+	password
+
+login:
+	user
+	password
+
+documentSubmission:
+	document upload
+
+compete:
+	document1        document2
+	this is better   this is better
+
+report:
+	document1  ^
+	document2  ^
+	document3  v
+	document4  =
+	    :
+	    :
+	documentn  v
+
+schema:
+	appuser:
+		id
+		password
+
+	work:
+		id, fileId, rating
+
+	rating:
+		id, fileId1, fileId2, choice
+
+

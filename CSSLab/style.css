@@ -1,0 +1,85 @@
+/*
+        background-color: #ACE;
+        background-color: #ACE;
+        background-color: black;
+	border-color: blue;
+        border: solid #FFCC99;
+	border-style: solid;
+        border-width: 2px;
+        color: #000;
+        color: #024;
+	color: #0f0; font: 110% monospace;
+	color: #BBC;
+	color: #CC0;
+        color: #f00;
+	color: #FF0;
+	color: grey;
+        display: block;
+        font: 13px Verdana, sans-serif;
+        font: 16px Verdana, sans-serif;
+        font: bold 1em sans-serif;
+        font: bold 25px sans-serif;
+        height: 28px;
+        letter-spacing: 0.5em;
+        margin: 0 0 2px 0; 
+        margin: -9px -9px 0.5em; 
+	margin-bottom: 0.25em;
+        padding: 10px;
+        padding: 15px 0 5px;
+        padding: 5px 10px; 
+        position: absolute;
+        position: absolute; top: 52px; left: 0;
+        text-align: center;
+        text-align: right;
+        text-decoration: none; 
+        text-transform: lowercase;
+        top: 26px; left: 161px; right: 25px;
+        white-space: nowrap;
+        width: 160px; height: 700px;
+*/
+
+body {position: relative; margin: 0; padding: 0; }
+nav {
+
+}
+
+nav a {
+
+}
+nav a:hover {color: #fff;}
+
+section {
+
+}
+section p {margin: 0 1em 1em;}
+section h3 {
+
+}
+/* Lookup psuedo classes, yes you can combine them.
+   Order matters here. Experiment say with placing 
+   a:visited last and see what happens. Rules are 
+   applied in order, so the last one applying to an
+   elements property wins.
+*/
+section a:link {
+
+}
+section a:visited {
+
+}
+section a:link:hover {
+
+}
+section a:visited:hover {
+
+}
+
+/* Look up this selector, figure out which particular elements the style applies to */
+section>header>h1 {
+
+}
+
+code, pre {
+
+}
+

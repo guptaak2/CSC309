@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script>
+			function increment(){
+				var textBox=document.incrementForm.currentNumber;
+				textBox.value=textBox.value+1;
+				// Note: the type of a text field is a string by default
+				// to interpret the string as an integer, use parseInt()
+				// Exercise: Fix this
+			}
+			function addNumbers(){
+				var num1=document.addNumbersForm.num1.value;
+				var num2=document.addNumbersForm.num2.value;
+				document.addNumbersForm.answer.value=num1+num2; // oops
+				// Exercise: fix this
+				
+			}
+			function isPrime(){
+				// Change this so that it lets the user know if the 'number'
+				// is or is not prime. A number >2 is prime if the only
+				// integer divisors are 1 and itself. See the % operator.
+				// 20%12==8.
+				alert(document.isPrimeForm.number.value);
+			}
+
+			// secretNumber is a global variable
+			var secretNumber=Math.round(Math.random()*1000);
+			function checkGuess(){
+				// read the users guess and determine which of
+				// 'Too high', 'Too Low', or 'Correct' should
+				// be displayed in the answer text box.
+				// Keep track of the number of guesses the user has made.
+				// How about removing the 'answer' textbox and displaying the status in the div.
+			}
+		</script>
+	</head>
+	<body>
+		<h3>Increment</h3>
+		<form name="incrementForm">
+			<input type="button" value="add 1" onclick="increment();"/>
+			<input type="text" size="3" name="currentNumber" value="0"/>
+		</form>
+		<h3>Add numbers</h3>
+		<form name="addNumbersForm">
+			<input type="text" size="3" name="num1"/> + <input type="text" size="3" name="num2"/> 
+			<input type="button" value="=" onclick="addNumbers();"/>
+			<input type="text" size="3" name="answer"/>
+		</form>
+
+		<h3>Is it prime?</h3>
+		<form name="isPrimeForm">
+			<input type="text" size="3" name="number"/> 
+			<input type="button" value="Ask?" onclick="isPrime();"/>
+			<input type="text" size="3" name="answer"/>
+		</form>
+
+		<h3>Number Guessing Game?</h3>
+		<form name="numberGuessForm">
+			<input type="text" size="3" id="number"/> 
+			<input type="button" value="Am I Right?" onclick="checkGuess();"/>
+			<input type="text" size="10" id="answer"/>
+			<div id="guessGameStatus"></div>
+		</form>
+	</body>
+</html>
